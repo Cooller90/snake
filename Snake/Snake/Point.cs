@@ -36,11 +36,11 @@ namespace Snake
             }
             else if (direction == Direction.UP)
             {
-                x += offest;
+                y -= offest;
             }
             else if (direction == Direction.DOWN)
             {
-                x -= offest;
+                y += offest;
             }
         }
         public override string ToString()

@@ -33,32 +33,17 @@ namespace Snake
             snake.Show();
             snake.Move();
 
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-
-            Console.ReadLine();
+            while(true)
+            {
+                if(Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key= Console.ReadKey();
+                    snake.HandlerSnake(key.Key);
+                }
+                Thread.Sleep(300);
+                snake.Move();
+            }
+            
         }
     }
 }
