@@ -27,6 +27,10 @@ namespace Snake
             verticalLine.Show();
             verticalLine2.Show();
 
+            Point pSnake = new Point(5, 5, '*');
+            Snake snake = new Snake(pSnake, 4, Direction.RIGHT);
+            snake.Show();
+
             Console.ReadLine();
         }
     }
