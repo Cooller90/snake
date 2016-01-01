@@ -57,5 +57,9 @@ namespace Snake
             sym = ' ';
             Draw();
         }
+        public bool isHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
+        }
     }
 }

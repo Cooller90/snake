@@ -16,15 +16,15 @@ namespace Snake
 
             //Point p2 = new Point(4, 5, '#');           
             //p2.Draw();
-            Console.SetBufferSize(100, 100);
+            Console.SetBufferSize(80, 25);
 
-            HorizontalLine horizontalLine = new HorizontalLine(5, 50, 3, '+');
-            HorizontalLine horizontalLine2 = new HorizontalLine(5, 50, 25, '+');
+            HorizontalLine horizontalLine = new HorizontalLine(0, 78, 0, '+');
+            HorizontalLine horizontalLine2 = new HorizontalLine(0, 78, 24, '+');
             horizontalLine.Show();
             horizontalLine2.Show();
 
-            Verticalline verticalLine = new Verticalline(3, 25, 4, '+');
-            Verticalline verticalLine2 = new Verticalline(3, 25, 50, '+');
+            Verticalline verticalLine = new Verticalline(0, 24, 0, '+');
+            Verticalline verticalLine2 = new Verticalline(0, 24, 78, '+');
             verticalLine.Show();
             verticalLine2.Show();
 
@@ -33,15 +33,30 @@ namespace Snake
             snake.Show();
             snake.Move();
 
+            FoodCreator foodCreator = new FoodCreator(80, 25, '$');
+            Point food = foodCreator.CreateFood();
+            food.Draw();
+
             while(true)
             {
+                if (snake.Eat(food))
+                {
+                    food = foodCreator.CreateFood();
+                    food.Draw();
+                }
+                else
+                {
+                    snake.Move();
+                }
+
+                Thread.Sleep(100);
+
                 if(Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key= Console.ReadKey();
                     snake.HandlerSnake(key.Key);
                 }
-                Thread.Sleep(300);
-                snake.Move();
+
             }
             
         }
